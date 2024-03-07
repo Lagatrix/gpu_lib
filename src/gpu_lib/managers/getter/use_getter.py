@@ -1,14 +1,14 @@
-"""An interface for obtaining the temperature of GPU."""
+"""An interface for obtaining the use of GPU."""
 from abc import ABC, abstractmethod
 
 from shell_executor_lib import CommandManager
 
 
-class TemperatureGetter(ABC):
-    """An interface for obtaining the temperature of GPU."""
+class UseGetter(ABC):
+    """An interface for obtaining the use of GPU."""
 
     def __init__(self, command_manager: CommandManager):
-        """Initialize the temperature getter.
+        """Initialize the use getter.
 
         Args:
             command_manager: The command manager to use to execute commands.
@@ -16,11 +16,11 @@ class TemperatureGetter(ABC):
         self._command_manager = command_manager
 
     @abstractmethod
-    async def get_temperature(self) -> float:
-        """Obtain the temperature of GPU in Celsius.
+    async def get_use(self) -> float:
+        """Obtain the use of GPU in percentage.
 
         Returns:
-            The temperature of GPU in Celsius.
+            The use of GPU.
 
         Raises:
             DriverNotFound: If the driver is not installed in the system.
