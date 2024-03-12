@@ -16,5 +16,5 @@ class Gpu:
     model: str
     brand: str
     architecture: str
-    memory: str
     driver_version: str
+    memory: str

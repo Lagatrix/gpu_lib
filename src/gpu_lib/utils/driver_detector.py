@@ -1,5 +1,5 @@
 """This utils detect the driver of GPU."""
-from typing import Tuple, cast
+from typing import cast
 
 from shell_executor_lib import CommandManager
 
@@ -12,7 +12,7 @@ drivers_map = {
 }
 
 
-async def detect_driver(command_manager: CommandManager) -> Tuple[InformationGetter, TemperatureGetter, UseGetter]:
+async def detect_driver(command_manager: CommandManager) -> tuple[InformationGetter, TemperatureGetter, UseGetter]:
     """Detect the driver of GPU.
 
     Args:
@@ -27,8 +27,11 @@ async def detect_driver(command_manager: CommandManager) -> Tuple[InformationGet
     """
     vga: str = (await command_manager.execute_command("/bin/lspci | grep VGA"))[0].split(": ")[1].lower()
 
-    for driver in drivers_map.keys():
+    for driver, getters in drivers_map.items():
         if driver in vga:
-            return cast(Tuple[InformationGetter, TemperatureGetter, UseGetter], drivers_map[driver])
+            return cast(
+                tuple[InformationGetter, TemperatureGetter, UseGetter],
+                tuple(getter(command_manager) for getter in getters)
+            )
 
     raise NotValidGpuError(vga)

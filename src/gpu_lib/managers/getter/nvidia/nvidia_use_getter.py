@@ -20,7 +20,7 @@ class NvidiaUseGetter(UseGetter):
         """
         try:
             return float((await self._command_manager.execute_command(
-                "/bin/nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader"))[0].split(" ")[0])
+                "/bin/nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader"))[0].split(" ")[0])
         except CommandError as command_error:
             if command_error.status_code == 127:
                 raise DriverNotFound()

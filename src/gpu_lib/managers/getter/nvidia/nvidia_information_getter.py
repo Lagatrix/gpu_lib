@@ -12,7 +12,7 @@ class NvidiaInformationGetter(InformationGetter):
         """Obtain the information of GPU.
 
         Returns:
-            The information of GPU.
+            The information of GPU in this order: model, brand, architecture, driver version and total memory.
 
         Raises:
             DriverNotFound: If the driver is not installed in the system.
