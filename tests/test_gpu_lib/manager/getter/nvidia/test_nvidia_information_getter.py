@@ -6,8 +6,7 @@ from shell_executor_lib import CommandManager, CommandError
 
 from gpu_lib import DriverNotFound
 from gpu_lib.managers.getter.nvidia.nvidia_information_getter import NvidiaInformationGetter
-from mock_gpu_lib import mock_information_gpu_tuple
-from tests.mock_gpu_lib import mock_command_executor_method, mock_information_gpu
+from tests.mock_gpu_lib import mock_command_executor_method, mock_information_gpu, mock_information_gpu_tuple
 
 
 class TestNvidiaInformationGetter(unittest.IsolatedAsyncioTestCase):

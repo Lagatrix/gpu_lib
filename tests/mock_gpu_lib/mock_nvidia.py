@@ -13,3 +13,5 @@ mock_information_gpu = [
 ]
 
 mock_information_gpu_tuple = ('NVIDIA GeForce GTX 1050 Ti', 'GeForce', 'Pascal', '4096 MiB', '535.86.05')
+
+mock_nvidia_lspci_gpu = ["01:00.0 VGA compatible controller: NVIDIA Corporation GP107 [GeForce GTX 1050 Ti] (rev a1)"]

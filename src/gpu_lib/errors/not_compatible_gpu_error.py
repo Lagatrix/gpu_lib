@@ -10,4 +10,4 @@ class NotValidGpuError(Exception):
         Args:
             gpu: The name of invalid GPU.
         """
-        super().__init__(f"the gpu ${gpu} is not valid.")
+        super().__init__(f"The gpu: {gpu} is not supported.")
